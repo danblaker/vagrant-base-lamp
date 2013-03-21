@@ -28,8 +28,8 @@ Vagrant::Config.run do |config|
                     {
                         name: "wkr",
                         docroot: "/vagrant/www/wkr/web/public/",
-                        server_name: "www.wkr.dev",
-                        server_aliases: ["www.wkr.dev"],
+                        server_name: "wkr.dev",
+                        server_aliases: ["wkr.dev"],
                     },{
                         name: "debug.wkr",
                         docroot: "/var/www/webgrind/",
