@@ -14,7 +14,7 @@ Vagrant::Config.run do |config|
     config.vm.box_url = "http://files.vagrantup.com/lucid64.box"
 
     config.vm.define :wkr do |project_config|
-        project_config.vm.forward_port 80, 8080
+        project_config.vm.forward_port 80, 8181
         # config.vm.boot_mode = :gui
         # config.vm.share_folder "v-data", "/vagrant_data", "../data"
 
