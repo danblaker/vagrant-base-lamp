@@ -27,7 +27,7 @@ Vagrant::Config.run do |config|
                 sites:[
                     {
                         name: "wkr",
-                        docroot: "/vagrant/www/wkr/public/",
+                        docroot: "/vagrant/www/wkr/web/public/",
                         server_name: "www.wkr.dev",
                         server_aliases: ["www.wkr.dev"],
                     },{
