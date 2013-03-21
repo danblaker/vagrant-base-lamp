@@ -64,3 +64,21 @@ execute "add-admin-user" do
   only_if { `/usr/bin/mysql -u root -p#{node[:mysql][:server_root_password]} -D mysql -r -N -e \"SELECT COUNT(*) FROM user where user='myadmin' and host='localhost'"`.to_i == 0 }
   ignore_failure true
 end
+
+# Download Zend Framework
+remote_file "/vagrant/ZendFramework-1.12.3-minimal.tar.gz" do
+  source "https://packages.zendframework.com/releases/ZendFramework-1.12.3/ZendFramework-1.12.3-minimal.tar.gz"
+  notifies :run, "bash[install_program]", :immediately
+end
+
+# Install Zend Framework
+bash "install_program" do
+  cwd "/vagrant"
+  code "tar -zxf ZendFramework-1.12.3-minimal.tar.gz"
+end
+
+# Create grit DB
+execute "grit" do
+	command "mysql -uroot -p#{node[:mysql][:server_root_password]} -e 'create database if not exists #{name};'"
+	user 'vagrant'
+end

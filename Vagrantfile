@@ -13,7 +13,7 @@ Vagrant::Config.run do |config|
     # doesn't already exist on the user's system.
     config.vm.box_url = "http://files.vagrantup.com/lucid64.box"
 
-    config.vm.define :project do |project_config|
+    config.vm.define :wkr do |project_config|
         project_config.vm.forward_port 80, 8080
         # config.vm.boot_mode = :gui
         # config.vm.share_folder "v-data", "/vagrant_data", "../data"
@@ -26,15 +26,15 @@ Vagrant::Config.run do |config|
             chef.json = {
                 sites:[
                     {
-                        name: "zf2app",
-                        docroot: "/vagrant/www/",
-                        server_name: "www.zf2app.dev",
-                        server_aliases: ["www.zf2app.dev"],
+                        name: "wkr",
+                        docroot: "/vagrant/www/wkr/public/",
+                        server_name: "www.wkr.dev",
+                        server_aliases: ["www.wkr.dev"],
                     },{
-                        name: "debug.zf2app",
+                        name: "debug.wkr",
                         docroot: "/var/www/webgrind/",
-                        server_name: "debug.zf2app.dev",
-                        server_aliases: ["debug.zf2app.dev"],
+                        server_name: "debug.wkr.dev",
+                        server_aliases: ["debug.wkr.dev"],
                     }
                 ],
                 apache:{
